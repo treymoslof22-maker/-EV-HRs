@@ -515,7 +515,7 @@ const PUSHOVER_USER_KEY = 'u8s29a84uwrrtidoieqj1izetdeq59';
 const BETMGM_CDS_ACCESS_ID = 'OTU4NDk3MzEtOTAyNS00MjQzLWIxNWEtNTI2MjdhNWM3Zjk3';
 const BETMGM_CDS_SUBDIVISION = 'US-Colorado';
 const TRACKED_BOOKMAKERS = ['circasports', 'betmgm', 'fanduel', 'draftkings', 'hardrockbet', 'thescorebet', 'fanatics'];
-const SCRAPE_FALLBACK_BOOKMAKERS = ['fanduel', 'draftkings', 'hardrockbet', 'thescorebet', 'fanatics'];
+const SCRAPE_FALLBACK_BOOKMAKERS = ['circasports', 'fanduel', 'draftkings', 'hardrockbet', 'thescorebet', 'fanatics'];
 const HR_MARKET_KEYS = ['batter_home_runs', 'batter_home_runs_alternate'];
 
 function normalizeBookKey(book) {
@@ -843,7 +843,7 @@ async function fetchScrapedBookmakerFallback(eventId) {
       }))
       .filter(book => book.markets.length > 0);
   } catch (e) {
-    log(`FD/DK scrape fallback failed for event ${eventId}: ${e.message}`, 'error');
+    log(`Scrape fallback failed for event ${eventId}: ${e.message}`, 'error');
     return [];
   }
 }
